@@ -1,5 +1,6 @@
 package com.example.flo
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flo.databinding.ActivityMainBinding
@@ -11,6 +12,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.mainPlayerLayout.setOnClickListener{
+//            startActivity(Intent(this,SongActivity::class.java))
+        }
+
         initNavigation()
 
         binding.mainBnv.setOnItemSelectedListener {
