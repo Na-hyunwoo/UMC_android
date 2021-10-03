@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.mainPlayerLayout.setOnClickListener{
-//            startActivity(Intent(this,SongActivity::class.java))
+            startActivity(Intent(this,SongActivity::class.java))
         }
 
         initNavigation()

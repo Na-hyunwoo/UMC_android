@@ -233,6 +233,21 @@
         android:src="@drawable/nugu_btn_play_32"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/song_time_start_tv"
+        app:layout_constraintStart_toEndOf="@+id/song_previous_iv"
+        app:layout_constraintEnd_toStartOf="@+id/song_next_iv"
+        app:layout_constraintBottom_toBottomOf="@+id/song_repeat_iv"
+        />
+
+    <ImageView
+        android:id="@+id/song_pause_iv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/btn_miniplay_mvpause"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@+id/song_time_start_tv"
         app:layout_constraintStart_toEndOf="@+id/song_previous_iv"
         app:layout_constraintEnd_toStartOf="@+id/song_next_iv"
@@ -279,13 +294,14 @@
 
     <ImageView
         android:id="@+id/song_related_iv"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/btn_player_related"
         android:layout_marginBottom="20dp"
         app:layout_constraintStart_toEndOf="@id/song_instagram_iv"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/song_list_iv"
+        app:layout_constraintTop_toTopOf="@+id/song_instagram_iv"
         />
 
     <ImageView
@@ -297,6 +313,7 @@
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/song_related_iv"
         />
 
 
