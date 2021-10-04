@@ -6,8 +6,8 @@
     
     <ImageView
         android:id="@+id/song_btn_setting_iv"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:src="@drawable/btn_player_setting"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,8 +17,8 @@
 
     <ImageView
         android:id="@+id/song_btn_eq_iv"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:src="@drawable/btn_player_eq_off"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/song_btn_setting_iv"
@@ -29,8 +29,8 @@
 
     <ImageView
         android:id="@+id/song_btn_arrow_iv"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:src="@drawable/btn_arrow_more"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,8 +41,8 @@
 
     <ImageView
         android:id="@+id/song_btn_player_iv"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:src="@drawable/btn_player_more"
         app:layout_constraintTop_toBottomOf="@+id/song_btn_arrow_iv"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/song_btn_player_iv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
@@ -73,7 +73,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/song_name_tv"
-        android:textSize="10sp"
+        android:textSize="9sp"
         android:textStyle="bold"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
@@ -104,8 +104,8 @@
 
         <ImageView
             android:id="@+id/song_album_iv"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
             android:src="@drawable/img_album_exp2"
             />
 
@@ -202,8 +202,8 @@
 
     <ImageView
         android:id="@+id/song_repeat_iv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@drawable/nugu_btn_repeat_inactive"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -215,8 +215,8 @@
 
     <ImageView
         android:id="@+id/song_previous_iv"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/nugu_btn_skip_previous_32"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -228,8 +228,8 @@
 
     <ImageView
         android:id="@+id/song_play_iv"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/nugu_btn_play_32"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -242,8 +242,8 @@
 
     <ImageView
         android:id="@+id/song_pause_iv"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/btn_miniplay_mvpause"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -256,8 +256,8 @@
 
     <ImageView
         android:id="@+id/song_next_iv"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/nugu_btn_skip_next_32"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -269,8 +269,8 @@
 
     <ImageView
         android:id="@+id/song_random_iv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@drawable/nugu_btn_random_inactive"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
@@ -282,8 +282,8 @@
 
     <ImageView
         android:id="@+id/song_instagram_iv"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/btn_actionbar_instagram"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
@@ -294,8 +294,8 @@
 
     <ImageView
         android:id="@+id/song_related_iv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@drawable/btn_player_related"
         android:layout_marginBottom="20dp"
         app:layout_constraintStart_toEndOf="@id/song_instagram_iv"
@@ -306,8 +306,8 @@
 
     <ImageView
         android:id="@+id/song_list_iv"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/btn_player_go_list"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"

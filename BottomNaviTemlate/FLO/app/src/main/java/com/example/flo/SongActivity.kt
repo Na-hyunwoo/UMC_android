@@ -1,5 +1,6 @@
 package com.example.flo
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
@@ -10,13 +11,13 @@ class SongActivity:AppCompatActivity() {
 
     lateinit var binding : ActivitySongBinding
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding= ActivitySongBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.songBtnArrowIv.setOnClickListener{
-            finish()
+            startActivity(Intent(this,MainActivity::class.java))
         }
 
         binding.songPlayIv.setOnClickListener{
@@ -25,6 +26,13 @@ class SongActivity:AppCompatActivity() {
 
         binding.songPauseIv.setOnClickListener{
             setPlayerStatus(true)
+        }
+
+        if (intent.hasExtra("name")) {
+            binding.songNameTv.text = intent.getStringExtra("name")
+        }
+        if (intent.hasExtra("artist")) {
+            binding.songArtistTv.text = intent.getStringExtra("artist")
         }
     }
 //    코드의 직관성을 위해 함수를 작성해 줍니다. 그렇게 되면 가독성도 높아진다. 이렇게 코드를 짜야겠네 앞으로는.

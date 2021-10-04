@@ -14,8 +14,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.mainPlayerLayout.setOnClickListener{
-            startActivity(Intent(this,SongActivity::class.java))
+
+            val name=binding.albumNameTv.text
+            val artist=binding.albumArtist6Tv.text
+
+            val nextIntent=Intent(this,SongActivity::class.java)
+            nextIntent.putExtra("name",name)
+            nextIntent.putExtra("artist",artist)
+            startActivity(nextIntent)
+
+
+
         }
+
 
         initNavigation()
 
