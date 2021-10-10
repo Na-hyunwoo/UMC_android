@@ -39,9 +39,9 @@ class SongActivity:AppCompatActivity() {
     fun setPlayerStatus(isPlaying : Boolean){
         if(isPlaying){
             binding.songPlayIv.visibility= View.VISIBLE
-            binding.songPauseIv.visibility=View.GONE
+            binding.songPauseIv.visibility=View.INVISIBLE
         }else{
-            binding.songPlayIv.visibility= View.GONE
+            binding.songPlayIv.visibility= View.INVISIBLE
             binding.songPauseIv.visibility=View.VISIBLE
         }
     }

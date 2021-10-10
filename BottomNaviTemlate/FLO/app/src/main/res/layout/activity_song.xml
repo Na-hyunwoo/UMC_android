@@ -104,8 +104,8 @@
 
         <ImageView
             android:id="@+id/song_album_iv"
-            android:layout_width="230dp"
-            android:layout_height="230dp"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
             android:src="@drawable/img_album_exp2"
             />
 
@@ -233,7 +233,7 @@
         android:src="@drawable/nugu_btn_play_32"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintTop_toBottomOf="@+id/song_time_start_tv"
         app:layout_constraintStart_toEndOf="@+id/song_previous_iv"
         app:layout_constraintEnd_toStartOf="@+id/song_next_iv"
@@ -245,9 +245,8 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/btn_miniplay_mvpause"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintTop_toBottomOf="@+id/song_time_start_tv"
         app:layout_constraintStart_toEndOf="@+id/song_previous_iv"
         app:layout_constraintEnd_toStartOf="@+id/song_next_iv"
