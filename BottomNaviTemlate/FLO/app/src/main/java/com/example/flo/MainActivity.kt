@@ -13,15 +13,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val song = Song("라일락","아이유(IU)",215,false)
+        setMiniPlayer(song)
+
         binding.mainPlayerLayout.setOnClickListener{
+            val intent=Intent(this,SongActivity::class.java)
 
-            val name=binding.albumNameTv.text
-            val artist=binding.albumArtist6Tv.text
+            intent.putExtra("title",song.title)
+            intent.putExtra("singer",song.singer)
+            intent.putExtra("playTime",song.playTime)
+            intent.putExtra("isPlaying",song.isPlaying)
 
-            val nextIntent=Intent(this,SongActivity::class.java)
-            nextIntent.putExtra("name",name)
-            nextIntent.putExtra("artist",artist)
-            startActivity(nextIntent)
+            startActivity(intent)
 
 
 
@@ -70,6 +73,11 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment())
             .commitAllowingStateLoss()
 
+    }
+
+    fun setMiniPlayer(song: Song){
+        binding.albumNameTv.text=song.title
+        binding.albumArtist6Tv.text=song.singer
     }
 
 }

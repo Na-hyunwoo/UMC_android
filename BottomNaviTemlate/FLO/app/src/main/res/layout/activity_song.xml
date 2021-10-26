@@ -161,14 +161,21 @@
         android:layout_marginEnd="100dp"
         />
 
-    <View
-        android:id="@+id/song_bar_v"
+    <SeekBar
+        android:id="@+id/song_bar_sb"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="#D3D3D3"
+        android:layout_height="10dp"
+        android:background="@null"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="10dp"
+        android:paddingEnd="0dp"
+        android:paddingStart="0dp"
+        android:progressBackgroundTint="@color/song_player_bg"
+        android:progressTint="@color/song_player"
+        android:progress="0"
+        android:max="1000"
+        android:thumb="@color/transparent"
         app:layout_constraintTop_toBottomOf="@+id/song_unlike_off_iv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -184,7 +191,7 @@
         android:textSize="10sp"
         android:textColor="#6F2DA8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/song_bar_v"
+        app:layout_constraintTop_toBottomOf="@+id/song_bar_sb"
         />
 
     <TextView
@@ -197,7 +204,7 @@
         android:textSize="10sp"
         android:textColor="#808080"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/song_bar_v"
+        app:layout_constraintTop_toBottomOf="@+id/song_bar_sb"
         />
 
     <ImageView
@@ -233,7 +240,7 @@
         android:src="@drawable/nugu_btn_play_32"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintTop_toBottomOf="@+id/song_time_start_tv"
         app:layout_constraintStart_toEndOf="@+id/song_previous_iv"
         app:layout_constraintEnd_toStartOf="@+id/song_next_iv"
@@ -246,7 +253,7 @@
         android:layout_height="30dp"
         android:src="@drawable/btn_miniplay_mvpause"
         android:layout_marginTop="20dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintTop_toBottomOf="@+id/song_time_start_tv"
         app:layout_constraintStart_toEndOf="@+id/song_previous_iv"
         app:layout_constraintEnd_toStartOf="@+id/song_next_iv"
