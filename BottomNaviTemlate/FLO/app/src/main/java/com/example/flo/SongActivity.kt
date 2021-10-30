@@ -1,6 +1,7 @@
 package com.example.flo
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -9,6 +10,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flo.databinding.ActivitySongBinding
+import com.google.gson.Gson
 
 class SongActivity:AppCompatActivity() {
 
@@ -17,6 +19,11 @@ class SongActivity:AppCompatActivity() {
     private val song:Song=Song()
     private lateinit var player:Player
     private val handler= Handler(Looper.getMainLooper())
+
+    //미디어 플레이어
+    private var mediaPlayer : MediaPlayer? = null
+    //Gson
+    private var gson: Gson =Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,11 +44,15 @@ class SongActivity:AppCompatActivity() {
         binding.songPauseIv.setOnClickListener{
             player.isPlaying=false
             setPlayerStatus(false)
+            song.isPlaying=false
+            mediaPlayer?.pause()
         }
 
         binding.songPlayIv.setOnClickListener{
             player.isPlaying=true
             setPlayerStatus(true)
+            song.isPlaying=true
+            mediaPlayer?.start()
         }
 
         if (intent.hasExtra("name")) {
@@ -53,16 +64,20 @@ class SongActivity:AppCompatActivity() {
     }
 
     private fun initSong(){
-        if(intent.hasExtra("title")&&intent.hasExtra("singer")&&intent.hasExtra("playTime")&&intent.hasExtra("isPlaying")){
+        if(intent.hasExtra("title")&&intent.hasExtra("singer")&&intent.hasExtra("second") && intent.hasExtra("playTime")&&intent.hasExtra("isPlaying")&&intent.hasExtra("music")){
             song.title=intent.getStringExtra("title")!!
             song.singer=intent.getStringExtra("singer")!!
+            song.second=intent.getIntExtra("second",0)
             song.playTime=intent.getIntExtra("playTime",0)
             song.isPlaying=intent.getBooleanExtra("isPlaying",false)
+            song.music=intent.getStringExtra("music")!!
+            val music=resources.getIdentifier(song.music,"raw",this.packageName)
 
             binding.songTimeEndTv.text=String.format("%02d:%02d",song.playTime/60,song.playTime%60)
             binding.songNameTv.text=song.title
             binding.songArtistTv.text=song.singer
             setPlayerStatus(song.isPlaying)
+            mediaPlayer=MediaPlayer.create(this,music)
         }
     }
 
@@ -101,14 +116,31 @@ class SongActivity:AppCompatActivity() {
             }catch (e:InterruptedException){
                 Log.d("interrupt","쓰레드가 종료되었습니다.")
             }
-
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mediaPlayer?.pause() //미디어 플레이어 중지
+        player.isPlaying=false //쓰레드 중지
+        song.isPlaying=false
+        song.second=(binding.songBarSb.progress*song.playTime)/1000
+        setPlayerStatus(false) //정지상태일 때의 이미지로 전환
+        //sharedPreference를 사용 해봅시다. 간단한 데이터 저장!
+        val sharedPreferences=getSharedPreferences("song", MODE_PRIVATE)
+        val editor=sharedPreferences.edit() //sharedPreferences 조작할 때 사용!
+        //Gson을 써보자. 객체를 json으로 바꿔주는 중간다리 !
+        val json=gson.toJson(song)
+        editor.putString("song",json)
+        editor.apply()
 
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        player.interrupt()
+        player.interrupt() //스레드 해제
+        mediaPlayer?.release() //미디어 플레이어가 갖고있떤 리소스 해제.
+        mediaPlayer=null //미디어 플레이어 해제
     }
 
 }
