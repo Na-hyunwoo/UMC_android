@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TableLayout
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.example.flo.databinding.FragmentLockerBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -13,6 +14,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class LockerFragment : Fragment() {
 
     lateinit var binding: FragmentLockerBinding
+    private var albumData=ArrayList<Album>();
 
     val information= arrayListOf("저장한 곡","음악파일")
 
@@ -32,7 +34,12 @@ class LockerFragment : Fragment() {
         }.attach()
 
         return binding.root
+
+
+
     }
+
+
 
 
 }

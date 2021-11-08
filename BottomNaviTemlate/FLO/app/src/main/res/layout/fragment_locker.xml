@@ -13,8 +13,8 @@
         android:textSize="20dp"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
@@ -25,7 +25,7 @@
         android:text="로그인"
         android:textSize="12sp"
         android:textColor="#3F3FFF"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="5dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,13 +38,15 @@
         android:layout_marginTop="15dp"
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorColor="#3F3FFF"
-        app:tabTextColor="#3F3FFF"
+        app:tabTextColor="#000000"
+        app:tabSelectedTextColor="#3F3FFF"
         app:tabRippleColor="#00FF0000"
         app:layout_constraintTop_toBottomOf="@+id/locker_locker_tv"
         app:layout_constraintStart_toStartOf="parent"
         />
 
     <View
+        android:id="@+id/locker_line_v"
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:background="#D3D3D3"
@@ -53,15 +55,75 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
 
+    <ImageView
+        android:id="@+id/locker_select_iv"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/btn_playlist_select_off"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/locker_line_v" />
+
+    <TextView
+        android:id="@+id/locker_select_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="전체선택"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/locker_select_iv"
+        app:layout_constraintStart_toEndOf="@+id/locker_select_iv"
+        app:layout_constraintTop_toTopOf="@+id/locker_select_iv" />
+
+    <ImageView
+        android:id="@+id/locker_icon_iv"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:src="@drawable/icon_browse_arrow_right"
+        android:layout_marginStart="25dp"
+        app:layout_constraintTop_toTopOf="@+id/locker_select_tv"
+        app:layout_constraintBottom_toBottomOf="@+id/locker_select_tv"
+        app:layout_constraintStart_toEndOf="@+id/locker_select_tv"
+        />
+
+    <TextView
+        android:id="@+id/locker_listen_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="전체듣기"
+        android:textSize="15sp"
+        app:layout_constraintTop_toTopOf="@+id/locker_icon_iv"
+        app:layout_constraintBottom_toBottomOf="@+id/locker_icon_iv"
+        app:layout_constraintStart_toEndOf="@+id/locker_icon_iv"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="편집"
+        android:textSize="15dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintTop_toTopOf="@+id/locker_listen_tv"
+        app:layout_constraintBottom_toBottomOf="@+id/locker_listen_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/locker_content_vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/locker_menu_tl"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/locker_listen_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
 
+    </androidx.viewpager2.widget.ViewPager2>
+
+
+<!--    미리보기 기능 제공 tools:listitem="@layout/item_album"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
